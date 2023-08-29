@@ -1,0 +1,42 @@
+.profile-card {
+  background-color: white;
+  margin: 12px;
+  box-shadow: 3px 2px 2px 2px rgba(33, 33, 33, .1);
+  border-radius: 12px;
+  padding-bottom: 4px;
+}
+
+.card-header-profile {
+  border-radius: 12px 12px 0 0;
+  background-color: $main-blue;
+  color: white;
+  padding: 4px;
+  h4 {
+    margin: 0;
+  }
+  h2 {
+    margin: 0;
+  }
+}
+
+.dare-item {
+  background-color: #C2EAFF;
+  color: rgb(51, 51, 51);
+  border-radius: 32px;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.card-content-profile {
+  padding: 8px;
+}
+
+.card-content-profile>span {
+  margin-top: 8px;
+}
+
+a.dare-item {
+  padding-right: 16px;
+  padding-left: 16px;
+}

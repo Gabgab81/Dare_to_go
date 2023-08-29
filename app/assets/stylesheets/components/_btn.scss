@@ -1,0 +1,52 @@
+.btn-main {
+  color: white;
+  background-color: $main-yellow;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 0;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-blue {
+  color: white;
+  background-color: $main-blue;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 0;
+  text-align: center;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-white {
+  color: white;
+  background-color: $main-blue;
+  border-radius: 8px;
+  padding: 8px 16px;
+  border: 1px solid white;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.bg-blue {
+  background-color: $main-blue;
+}
+
+.btn-form {
+  display: flex;
+  flex-direction: column;
+}

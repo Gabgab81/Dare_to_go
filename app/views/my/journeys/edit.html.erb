@@ -1,0 +1,7 @@
+<%= simple_form_for @journey, url: my_journey_path(@journey) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :content %>
+  <%= f.input :challenge_rating, collection: 0..5 %>
+  <%= f.input :public %>
+  <%= f.button :submit %>
+<% end %>

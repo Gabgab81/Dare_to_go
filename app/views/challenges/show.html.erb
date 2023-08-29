@@ -1,0 +1,67 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title" id="exampleModalLongTitle">Contract</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        By clicking on "Accept". You pledge to do this challenge !
+      </div>
+      <div class="bg-primary">
+        <div class="btn-box">
+          <%= link_to "Accept", challenge_dares_path(@challenge), class: "btn-main", method: :post %>
+        </div>
+        <div class="btn-box">
+          <button type="button" class="btn-white" data-dismiss="modal">Refuse</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, width: 400, crop: :fill %>')">
+<h1 class="text-white" ><b><%= @challenge.name.capitalize %></b></h1>
+</div>
+<p> <%= @challenge.content %> </p>
+<p>You have already done the challenge  <b><%= @count %></b> times.</p>
+
+<% if @challenge.solo? || @challenge.friend? %>
+  <div>
+    <div class="btn-box">
+      <button type="button" class="btn-main" data-toggle="modal" data-target="#exampleModalCenter">
+        Go!
+      </button>
+    </div>
+  </div>
+  <% end %>
+
+<% if @challenge.grouped? && @inscription %>
+  <% if @attendees.count > 0 %>
+      <span>Already <%= @attendees.count  %> attendees : </span>
+      <% @attendees.each do |attendee| %>
+        <span><b><%= attendee.username %></b> </span>
+      <% end %>
+      <p>Why not joining them ? It will be fun !!</p>
+    <% else %>
+      <p>Be the first attendee and show the others the way !</p>
+    <% end %>
+  <div class="btn-box">
+    <button type="button" class="btn-main" data-toggle="modal" data-target="#exampleModalCenter">
+      Go!
+    </button>
+  </div>
+<% end %>
+<% if @challenge.grouped? && !@inscription %>
+  <p>Sorry this event is closed, try a new one</p>
+<% end %>
+
+
+
+<div id="map"
+     style="width: 100%; height: 300px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

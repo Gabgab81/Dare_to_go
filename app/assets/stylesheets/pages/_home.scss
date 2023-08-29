@@ -1,0 +1,117 @@
+// .home-main {
+//   background-color: white;
+//   margin-bottom: 0;
+//   padding-bottom: 16px;
+// }
+.card-home {
+  margin: 12px;
+  background-color: $main-blue;
+  border-radius: 12px;
+  color: white;
+  height: 380px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.img-card-home {
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  height: 60%;
+}
+
+.btn-home {
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.card-info {
+  margin-top: 16px;
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+.presentation {
+  padding: 12px;
+  h2 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+.banner {
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(112, 205, 255, 0.4), rgba(0, 0, 0, 0.5)), asset-url("Dare-home.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  h1 {
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  p {
+    margin-bottom: 16px;
+  }
+}
+
+.btn-home-banner {
+  background-color: #FBBC0E;
+  border-radius: 8px;
+  padding: 8px 16px;
+  color: white;
+  font-weight: bold;
+}
+
+.concept {
+  color: $main-blue;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.challenge-card-home {
+  height: 300px;
+  border: 1px solid $main-blue;
+  border-radius: 12px;
+  width: 300px;
+  h4 {
+    margin-top: 8px;
+    color: $main-blue;
+    font-size: 24px;
+  }
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.img-challenge-home {
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  height: 75%;
+}
+
+.menu-challenge {
+  overflow: auto hidden;
+  display: grid;
+  grid-auto-flow: column;
+  overflow: auto hidden;
+  gap: 12px;
+}
+.logo{
+  object-fit: cover;
+  background-size: cover;
+  border-radius: 12px 12px 0 0;
+  width: 35%;
+  height: 35%;
+  position: absolute;
+  left: 33%;
+  top: 15px;
+}

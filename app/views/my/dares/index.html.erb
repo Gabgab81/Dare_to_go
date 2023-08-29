@@ -1,0 +1,54 @@
+
+<div class="card-dares p-1">
+
+  <h4 class="text-center">My challenges in progress(<%= @dares_pending.count  %>)</h4>
+    <% @dares_pending.each do |dare| %>
+     <%= link_to challenge_dare_path(dare.challenge, dare) do %>
+      <div id="card-container">
+        <div class="product-details">
+          <div class="w-100"><h3><%= dare.challenge.name.capitalize %></h3></div>
+            <p class="information">"<%= dare.challenge.content.truncate(60)... %>."</p>
+            <span class="p-1"  >You have until <b><em><%= (dare.created_at + dare.challenge.delay*86400).strftime("%d %m %Y") %> <%= (dare.created_at + dare.challenge.delay*86400).strftime("at %I:%M %p") %></em></b> to complete it. Go Go Go, you can do it !!</span>
+        </div>
+        <div class="product-image">
+          <%= cl_image_tag dare.challenge.photo.key, alt: "challenge friends"%>
+        <div class="info">
+          <h3>Details</h3>
+          <ul>
+            <li><strong>Xp : <%= dare.challenge.xp %></strong></li>
+            <li><strong>Difficulty : <%= dare.challenge.difficulty %></strong></li>
+          </ul>
+        </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
+  <div class="btn-box">
+    <%= link_to "Get another challenge", categorys_path, class: "btn-main" %>
+  </div>
+</div>
+
+
+<div class="card-dares p-1">
+  <h4 class="text-center">My last challenges completed</h4>
+  <% @dares_completed.each do |dare| %>
+    <%= link_to challenge_dare_path(dare.challenge, dare) do %>
+    <div id="card-container">
+      <div class="product-details">
+        <div class="w-100"><h3><%= dare.challenge.name.capitalize %></h3></div>
+          <span class="discipline-index">This dares has been completed on <b><em><%= dare.updated_at.strftime("%d %m %Y") %></em></b>
+             and granted you : <em><b><%= dare.challenge.xp %></em></b> dares points</span>      </div>
+      <div class="product-image">
+        <%= cl_image_tag dare.challenge.photo.key, alt: "challenge friends"%>
+      <div class="info">
+        <h3>Details</h3>
+        <ul>
+          <li><strong>Xp : <%= dare.challenge.xp %></strong></li>
+          <li><strong>Difficulty : <%= dare.challenge.difficulty %></strong></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

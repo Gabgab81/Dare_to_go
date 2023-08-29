@@ -1,0 +1,52 @@
+<div class="profile-card">
+  <div class="card-header-profile">
+    <h2 class="text-center"><%= current_user.username %>  </h2>
+  </div>
+  <p>
+    <%= current_user.presentation %>
+  </p>
+  <div class="notification-actions d-flex justify-content-end align-items-end">
+    <%= link_to edit_user_registration_path, class:"text-decoration-none" do %>
+      <p>Edit  <span class= "fas fa-pencil-alt"></span></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="profile-card">
+  <div class="card-header-profile">
+    <h4 class="text-center">Dares in progress</h4>
+  </div>
+  <div class="card-content-profile d-flex flex-wrap">
+    <% @dares_in_progress.each do |dare| %>
+      <span><%= link_to dare.challenge.name, challenge_dare_path(dare.challenge, dare), class: "dare-item" %></span>
+    <% end %>
+  </div>
+</div>
+
+<div class="profile-card">
+  <div class="card-header-profile">
+    <h4 class="text-center">Dares complete</h4>
+  </div>
+  <div class="card-content-profile d-flex flex-wrap">
+    <% @dares_complete.each do |dare| %>
+      <span><%= link_to dare.challenge.name, challenge_dare_path(dare.challenge, dare), class: "dare-item" %></span>
+    <% end %>
+  </div>
+</div>
+
+<div class="profile-card">
+  <div class="card-header-profile">
+    <h4 class="text-center">My Journey</h4>
+  </div>
+  <% @journeys.last(5).each do |journey| %>
+    <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) do %>
+      <div class="blog-journey" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path journey.dare.challenge.photo.key, height: 150, crop: :fill %>')">
+        <h4 class="text-center text-white"><strong><%= journey.title %></strong></h4>
+        <p class="text-center text-white"><strong><%= journey.dare.challenge.name %></strong></p>
+      </div>
+    <% end %>
+  <% end %>
+  <div class="btn-box">
+    <%= link_to "More", my_journeys_path, class: "btn-blue" %>
+  </div>
+</div>

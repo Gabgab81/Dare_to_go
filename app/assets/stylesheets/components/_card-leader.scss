@@ -1,0 +1,36 @@
+.img-leader-link{
+  border-style: solid solid solid ridge;
+  // border-style: solid;
+  border-radius: 50%;
+  border-width: 5px;
+  border-color: rgb(255, 255, 255);
+  position: relative;
+  right: 20px;
+}
+
+.img-leader{
+  
+}
+
+.main{
+  overflow: hidden;
+  height: 100px;
+  // background-color: #006ca6;
+}
+
+.trophy-leader{
+  // color: #ffd700;
+  font-size: 40px;
+  margin-right: 20px;
+  transform: rotate(-5deg);
+  background-color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  
+}
+.parag-for-lvl{
+  font-size: 1rem;
+  text-align: center;
+}

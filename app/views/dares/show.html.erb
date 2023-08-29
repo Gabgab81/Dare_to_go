@@ -1,0 +1,62 @@
+
+
+<div class="dare-success">
+    <div class="title-bg d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @challenge.photo.key, width: 400, crop: :fill %>')">
+      <h1 class="text-white"><b><%= @dare.challenge.name.capitalize %></b></h1>
+    </div>
+    <h2 class="text-center">Your dare:</h2>
+    <p><strong>Review your tasks:</strong></p>
+    <p><%= @challenge.content  %></p>
+    <p>This dare will grant you : <%= @challenge.xp %> XP.</p>
+    <% if @dare.pending? %>
+      <p>The Challenge "<%= @challenge.name %>" is on his way, make your best to complet it, it's important.</p>
+      <div class="btn-box">
+        <%= link_to "Open challenge chat", challenge_chatroom_path(@challenge, @chatroom), class: "btn-blue" %>
+      </div>
+
+        <div class="link-accept-refuse d-flex flex-column dare-info p-1">
+          <% if @dare.user_id == current_user.id %>
+          <div class="inline">
+            <div class="btn-box" id="validation-dare" data-challenge="<%= @challenge.id %>" data-dare="<%= @dare.id %>">
+              <%= link_to "Validate your dare",
+                            accept_challenge_dare_path(@challenge, @dare),
+                            method: :patch, class: "btn-main" %>
+            </div>
+            <div class="btn-box">
+              <%= link_to "Want to give-up ?",
+                            refuse_challenge_dare_path(@challenge, @dare),
+                            method: :patch,
+                            data: { confirm: "Are you sure?" }, class: "btn-white" %>
+            </div>
+          </div>
+          <p class="p-1"  >
+            You have until<b><em><%= @deadline.strftime("%d %m %Y") %> <%= @deadline.strftime("at %I:%M %p") %></em></b> to complete it, after, it will be too late ! Go Go Go, you can do it !
+          </p>
+        </div>
+      <% end %>
+      <div>
+    <% elsif @dare.validated? %>
+      <p class="dare-info">The Challenge <%= @challenge.name %> have been complete on <%= @dare.updated_at.strftime("%d %m %Y") %>, Congrats !</p>
+      <div class="btn-box">
+        <%= link_to "Tell a Journey", new_challenge_dare_journey_path(@challenge, @dare), class: "btn-main" %>
+      </div>
+      <div class="btn-box">
+        <%= link_to "Get another challenge", categorys_path, class: "btn-main" %>
+      </div>
+    <% elsif @dare.failed? %>
+      <p class="dare-info">The Challenge <%= @challenge.name %> has failed or you have give up. What happened ?</p>
+      <div class="btn-box">
+        <%= link_to "Tell a Journey", new_challenge_dare_journey_path(@challenge, @dare), class: "btn-main" %>
+      </div>
+      <div class="btn-box">
+        <%= link_to "Get another challenge", categorys_path, class: "btn-main" %>
+      </div>
+      <% end %>
+    </div>
+  <br />
+</div>
+<div id="map"
+   style="width: 100%; height: 300px;"
+   data-markers="<%= @markers.to_json %>"
+   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>

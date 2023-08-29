@@ -1,0 +1,65 @@
+<div class="home-main">
+  <div class="banner text-center">
+    <%= image_tag "Logo-natif.v2.png", alt: "logo", class: "logo" %>
+    <p>Overcome your shyness</p>
+    <% if user_signed_in? %>
+      <%= link_to "New Challenge", categorys_path, class: "btn-home-banner mx-5" %>
+    <% else %>
+      <%= link_to "Sign up",new_user_session_path, class: "btn-home-banner mx-5" %>
+    <% end %>
+  </div>
+  heo
+
+  <div class="presentation">
+    <h2 class="text-center">Welcome in Dare to Go</h2>
+    <p class="text-center">Take a challenge, alone, with friend or meet new friend and improve your social skills !</p>
+    <br>
+    <p class="concept text-center">Accomplish Challenges and earn xp !</p>
+
+    <div class="menu-challenge">
+      <% n1 = (2..10).to_a.sample %>
+      <% n2 = (11..20).to_a.sample %>
+      <% n3 = (21..30).to_a.sample %>
+      <%= link_to challenge_path(n1) do %>
+        <div class="challenge-card-home">
+          <%= cl_image_tag Challenge.find(n1).photo.key, alt: "Challenge1", class: "img-challenge-home" %>
+          <div class="pt-2">
+            <h4 class="text-center">Challenge 1</h4>
+          </div>
+        </div>
+      <% end %>
+    <%= link_to challenge_path(n2) do %>
+      <div class="challenge-card-home">
+        <%= cl_image_tag Challenge.find(n2).photo.key, alt: "Challenge2", class: "img-challenge-home" %>
+        <div class="pt-2">
+          <h4 class="text-center">Challenge 2</h4>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to challenge_path(n3) do %>
+      <div class="challenge-card-home">
+        <%= cl_image_tag Challenge.find(n3).photo.key, alt: "Challenge3", class: "img-challenge-home" %>
+        <div class="pt-2">
+          <h4 class="text-center">Challenge 3</h4>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="card-home text-center">
+    <%= image_tag "leader-board.jpg", alt: "torphy", class: "img-card-home" %>
+    <div class="card-info">
+      <h2>Leaderboard</h2>
+      <%= link_to "Leaderboard", users_path, class: "btn-home"%>
+    </div>
+  </div>
+
+  <div class="card-home text-center">
+    <%= image_tag "journey.jpg", alt: "road", class: "img-card-home" %>
+    <div class="card-info">
+      <h2>Journey diary</h2>
+      <%= link_to "Journeys", journeys_path, class: "btn-home px-4"  %>
+    </div>
+  </div>
+</div>

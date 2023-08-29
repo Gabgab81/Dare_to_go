@@ -1,0 +1,35 @@
+<div class="navbar-f">
+  <div class="navbar-f-item">
+    <%= link_to root_path, class: "nav-link" do %>
+       <i class="fas fa-home"></i>
+       <p class="nav-text">Home</p>
+    <% end %>
+  </div>
+    <% if user_signed_in? %>
+      <div class="navbar-f-item">
+        <%= link_to categorys_path, class: "nav-link" do %>
+          <i class="fas fa-laugh-wink"></i>
+          <p class="nav-text">Challenge</p>
+        <% end %>
+      </div>
+      <div class="navbar-f-item">
+        <%= link_to my_dares_path(current_user), class: "nav-link" do %>
+          <i class="fab fa-algolia"></i>
+          <p class="nav-text">My Dares</p>
+        <% end %>
+      </div>
+      <div class="navbar-f-item">
+        <%= link_to my_user_path(current_user), class: "nav-link" do %>
+          <i class="fas fa-user"></i>
+          <p class="nav-text">Profile</p>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="navbar-f-item">
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="fas fa-user"></i>
+          <p class="nav-text">Login</p>
+        <% end %>
+      </div>
+    <% end %>
+</div>

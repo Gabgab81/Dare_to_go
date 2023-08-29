@@ -1,0 +1,11 @@
+<div class="message-container" id="message-<%= message.id %>">
+    <blockquote class="chat-bubble d-flex">
+      <div class="d-flex align-items-center mx-1">
+          <%= avatar_navbar(message.user) %>
+      </div>
+      <div>
+        <p><%= message.content %></p>
+        <cite><%= message.user.username %> - <%= message.created_at.strftime("%a %b %e at %l:%M%p") %></cite>
+      </div>
+    </blockquote>
+</div>

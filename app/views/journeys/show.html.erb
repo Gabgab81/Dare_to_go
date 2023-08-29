@@ -1,0 +1,11 @@
+<div class="journey-show">
+  <h2 class="text-center"><%= @journey.title %></h2>
+  <p><small>par <%= @journey.user.username %> le <%= @journey.created_at.to_s.first(10) %> </small></p>
+  <p class="c1">Challenge: <%= link_to @journey.dare.challenge.name, challenge_path(@journey.dare.challenge), class: "c2"%></p>
+  <div class="journey-container ">
+    <p><%= @journey.content %></p>
+  </div>
+  <div class="btn-box">
+    <%= link_to "Read more journey", journeys_path, class: "btn-main" %>
+  </div>
+</div>

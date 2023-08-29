@@ -1,0 +1,42 @@
+
+<div>
+    <h1 class="text-center m-2"> Learderboard </h1>
+</div class="">
+<% count_user = 0 %>
+<% @users_sorted.each do |user| %>
+  <div style="background-color:RGBA(0, 107, 166, <%= count_user > 2 ? 0.25 : 1 - count_user * 0.25 %>) " class="my-3 d-flex justify-content-between align-items-center main">
+    <div class="img-leader">
+      <%= cl_image_tag user.photo.key, height: 150, width: 150, crop: :fill, class:"img-leader-link" %>
+    </div>
+    <div class="d-flex flex-column align-items-center">
+      <h3 class="text-white">
+        <%= user.username %>
+      </h3>  
+      <div class="text-white">
+        <p class="parag-for-lvl">
+        <%= user.current_level.rank %> - Dares lvl : <%= user.current_level.id %>
+        - Total xp : <%= user.total_xp %>
+        </p>
+      </div>
+    </div>
+    <% if count_user == 0 %>
+      <div style="color:#ffd700" class="trophy-leader">
+        <i class="fas fa-trophy"></i>
+      </div>
+    <% elsif count_user == 1 %>
+      <div style="color:#D3D3D3" class="trophy-leader">
+        <i class="fas fa-trophy"></i>
+      </div>
+    <% elsif count_user == 2 %>
+      <div style="color:#cd7f32" class="trophy-leader">
+        <i class="fas fa-trophy"></i>
+      </div>
+    <% else %>
+      <div style="color:black" class="trophy-leader">
+        <i class="fas fa-medal"></i>
+      </div>
+    <% end %>
+    <% count_user +=1 %>
+  </div>
+<% end %>
+

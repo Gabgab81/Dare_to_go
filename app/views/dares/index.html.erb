@@ -1,0 +1,21 @@
+<div class="container">
+  <h2 class="">My last challenges completed</h2>
+
+    <% @dares.each do |dare| %>
+            <div class="text-card-index">
+            <h3 class="title-dare"><%= dare.challenge.name %></h3>
+            <span class="discipline-index"> XP :<%= dare.challenge.xp %></span>
+            <br>
+            <span class="description-index">
+              <%if strip_tags(dare.challenge.content.to_s).size < 50  %>
+                <%= dare.challenge.content %>
+              <% else %>
+                <%= strip_tags(dare.challenge.content.to_s).truncate(250) %>...
+              <% end %>
+            </span>
+          </div>
+          <div class="btn-index">
+            <%= link_to "See more", challenge_dare_path(dare.challenge, dare), class: "btn btn-success"  %>
+        </div>
+    <% end %>
+</div>

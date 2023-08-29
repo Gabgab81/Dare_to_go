@@ -1,0 +1,84 @@
+.blog-main {
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
+
+.blog-journey {
+  background-color: white;
+  margin: 12px;
+  border-radius: 12px;
+  padding-bottom: 4px;
+  box-shadow: 4px 4px 4px darkgrey;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.c1 {
+  font-weight: lighter;
+  font-size: 24px;
+}
+
+.c2 {
+  color: $main-blue;
+  font-size: 24px;
+}
+
+.journey-show {
+  margin-bottom: 0;
+  padding-bottom: 16px;
+}
+
+.toggle {
+  position: absolute;
+  transform: scale(0);
+}
+
+.toggle + label {
+  position: relative;
+  display: inline-block;
+  padding-left: 40px;
+}
+
+.toggle + label::before {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 36px;
+  height: 20px;
+  top: 0;
+  left: 0;
+  background-color: #EAEAEA;
+  border-radius: 50rem;
+}
+
+.toggle:checked + label::before {
+  background-color: #1EDD88;
+}
+
+.toggle + label::after {
+  content: '';
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: left 0.2s ease;
+}
+
+.toggle:checked + label::after {
+  left: 18px;
+}
+
+.journey-container {
+  // background-image: url("https://image.freepik.com/vecteurs-libre/texture-papier-carre-page-cahier-cage_159025-44.jpg");
+  background-color: white;
+  margin: 4px;
+  padding: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}

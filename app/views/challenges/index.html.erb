@@ -1,0 +1,34 @@
+<p class="m-3">
+  Pick one of this three challenges. Keep in mind it is important to achieve
+  as much challenge as you can to imporve your social skills and overcome your
+  shyness ! And don't forget:
+</p>
+<p class="text-center"><strong>We believe in you!</strong></p>
+<% count=-1 %>
+<% @challenge_sample.each do |challenge| %>
+  <%= link_to challenge_path(challenge) do %>
+    <div id="card-container">
+      <div class="product-details">
+        <div class="w-100"><h2><%= challenge.name.capitalize %>.</h2></div>
+        Xp:<span class="hint-star star">
+        <% challenge.difficulty.times do %>
+          <i class="fa fa-star" aria-hidden="true"></i>
+        <% end %>
+        </span>
+        <p class="information">"<%= challenge.content.truncate(80)... %>."</p>
+      </div>
+      <div class="product-image">
+        <%= cl_image_tag challenge.photo.key, width: 200, crop: :fill, alt: "challenge friends"%>
+      <div class="info">
+        <h3>Details</h3>
+        <ul>
+          <li>Times : <%= @nb_challenge[count += 1] %></li>
+          <li><strong>Xp : <%= challenge.xp %></strong></li>
+          <li><strong>Difficulty : <%= challenge.difficulty %></strong></li>
+        </ul>
+      </div>
+      </div>
+    </div>
+  <% end %>
+  <br />
+<% end %>

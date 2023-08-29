@@ -1,0 +1,30 @@
+<div class="container">
+  <h3>Congrats <%= @dare.user.username %></h3>
+  <% if @dare.validated? %>
+    <p>You've achieved this challenge, good job!</p>
+  <% elsif @dare.failed? %>
+    <p>You didn't made it? Not a big deal, you'll succed next time!</p>
+  <% end %>
+
+  <p>Write your feelings about this challenge, you can share it with other users if you wish to.</p>
+
+  <%= simple_form_for [@challenge, @dare, @journey] do |f| %>
+    <%= f.input :title, placeholder: 'Your title ...' %>
+    <%= f.input :content, placeholder: 'Your content ...' %>
+    <div class="rating-challenge">
+      <%= f.input :challenge_rating, collection: (1..5).to_a, label: "Rate your experience" %>
+    </div>
+    <div class="btn-box">
+      <%= f.input :public, input_html: { class: 'toggle' }  %>
+    </div>
+
+    <div class="btn-box">
+      <%= f.button :submit, class: "btn-main" %>
+    </div>
+  <% end %>
+    <%= link_to my_dares_path(current_user), class:"text-decoration-none" do %>
+    <div class="btn-box">
+      <p class= "btn-blue">Ignore</p>
+    </div>
+  <% end %>
+</div>

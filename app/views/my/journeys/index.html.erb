@@ -1,0 +1,22 @@
+<div class="blog-main">
+  <h2 class="text-center">My Journey</h2>
+
+  <% @journeys.last(5).each do |journey| %>
+    <div class="blog-journey">
+      <%= cl_image_tag journey.dare.challenge.photo.key, height: 300, crop: :fill, alt: "photo-challenge", class: "img-challenge-home" %>
+      <div class="notification-content">
+        <h4><%= journey.title %></h4>
+        <p><small>par <%= journey.user.username %> le <%= journey.created_at.to_s.first(10) %> </small></p>
+        <p class="c1">Challenge: <%= link_to journey.dare.challenge.name, challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) %></p>
+        <% if journey.content.size < 30 %>
+          <p><%= journey.content %></p>
+        <% else %>
+          <p><%= journey.content.truncate(60) %></p>
+        <% end %>
+        <%= link_to challenge_dare_journey_path(journey.dare.challenge, journey.dare, journey) do %>
+          <p class="text-center"><strong>Read more</strong></p>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,13 @@
+<h2 class="text-center">#<%= @chatroom.challenge.name.capitalize %></h2>
+<div id="messages" data-chatroom-id="<%= @chatroom.id %>" data-sender-id="<%= current_user.id %>">
+  <% @chatroom.messages.each do |message| %>
+    <%= render "messages/message", message: message %>
+  <% end %>
+</div>
+
+<%= simple_form_for [@chatroom.challenge, @chatroom, @message ], remote: true do |f| %>
+  <%= f.input :content, label: false, placeholder: "Message # #{@chatroom.challenge.name}" %>
+<% end %>
+<div class="btn-box">
+  <%= link_to "Go back", request.referer.present? ? request.referer : default_path, class: "btn-main" %>
+</div>

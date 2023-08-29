@@ -1,0 +1,18 @@
+.form-actions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 16px;
+  width: 100%;
+}
+
+.btn-login {
+  color: white;
+  border-radius: 8px;
+  background-color:  $main-blue;
+  padding: 8px 16px;
+}
+
+.form-control {
+  border-radius: 12px;
+}

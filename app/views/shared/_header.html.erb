@@ -1,0 +1,31 @@
+<div class="header">
+  <% if user_signed_in? %>
+    <p class="header-item"><%= current_user.username %></p>
+    <div>
+      <p class="header-item">
+        <%= current_user.current_level.rank %> - Dares lvl : <%= current_user.current_level.id %>
+      </p>
+      <div id="igXPBar" style="opacity: 1; display: block;">
+        <div id="igXPBarProg" style="background-color: rgb(251, 192, 45); width: <%= current_user.lvl_xp_bar %>%;"></div>
+      </div>
+    </div>
+    <div class="nav-item dropdown">
+      <%= avatar_navbar(current_user) %>
+      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+        <%= link_to "Profile", my_user_path(current_user), class: "dropdown-item" %>
+        <%= link_to "My journey", my_journeys_path(current_user), class: "dropdown-item" %>
+        <%= link_to "My dares", my_dares_path(current_user), class: "dropdown-item" %>
+        <%= link_to "Leaderboard", users_path, class: "dropdown-item" %>
+        <%= link_to "Journey diary", journeys_path, class: "dropdown-item" %>
+        <% if current_user.admin == true %>
+          <%= link_to "Admin", rails_admin.dashboard_path, class: "dropdown-item" %>
+        <% end %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+      </div>
+  <% else %>
+      <%= link_to new_user_session_path, class: "nav-link" do %>
+        <strong><p class="header-item">Login</p></strong>
+      <% end %>
+    <% end %>
+  </div>
+</div>

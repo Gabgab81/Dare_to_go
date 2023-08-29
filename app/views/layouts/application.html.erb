@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <title>Dare To go ! You are not alone, go with us !</title>
+    <meta name="description" content="Dare to go, where you can learn to overcome your shyness and become more social">
+    <meta property="og:title" content="Dare to Go !">
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://res.cloudinary.com/di1zmdlir/image/upload/v1614767375/Dare-home-OG_vhop98.jpg">
+    <meta property="og:description" content="Dare to go, where you can learn to overcome your shyness and become more social">
+    <meta property="og:site_name" content="Date To Go !"/>
+    <meta property="og:url" content="https://www.dare-to-go.com/"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@Legaspite">
+    <meta name="twitter:title" content="Dare to go ! Don't be shy !">
+    <meta name="twitter:description" content="Dare to go, where you can learn to overcome your shyness and become more social">
+    <meta name="twitter:creator" content="@Legaspite">
+    <meta name="twitter:image:src" content="https://res.cloudinary.com/di1zmdlir/image/upload/v1614767375/Dare-home-OG_vhop98.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <%= favicon_link_tag asset_path('favicon.ico') %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
+  </head>
+
+  <body>
+
+    <%= render 'shared/flashes' %>
+    <%= render 'shared/header' %>
+    <%= yield %>
+    <div class="footer-placeholder"></div>
+    <%= render 'shared/navbar' %>
+  </body>
+</html>

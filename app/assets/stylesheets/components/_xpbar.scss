@@ -1,0 +1,19 @@
+#igXPBar{
+  // width:-moz-calc(100% - 35px);
+  // width:-webkit-calc(100% - 35px);
+  // width:-o-calc(100% - 35px);
+  width:calc(100% - 5px);
+  height:12px;
+  // margin-left:20px;
+  background-color:rgba(0,0,0,.3);
+  border-radius:0px;
+  transform: skew(-45deg);
+}
+#igXPBarProg{
+  background: rgb(250,154,25);
+  background: linear-gradient(90deg, rgba(250,154,25,1) 0%, rgba(248,176,110,1) 100%);
+  opacity:.6;
+  width:0%;
+  height:100%
+
+}
